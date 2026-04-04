@@ -1,0 +1,75 @@
+
+    [
+        {
+        "id": 1,
+        "title": "Choo Lo",
+        "artist": "The Local Train",
+        "album": "Aalas Ka Pedh",
+        "duration": 210,
+        "src": "./src/assets/songs/choo-lo.mp3", 
+        "cover": "https://c.saavncdn.com/606/Aalas-Ka-Pedh-Hindi-2015-500x500.jpg"
+    },
+        {
+    "id": 2,
+    "title": "Raataan Lambiyan",
+    "artist": "Jubin Nautiyal & Asees Kaur",
+    "album": "Shershaah",
+    "duration": 230,
+    "src": "./src/assets/songs/Raataan Lambiyan.mp3",
+    "cover": "./src/assets/images/Raataan-Lambiyan.jpeg"
+    },
+        {
+    "id": 3,
+        "title": "Tum Se Hi",
+        "artist": "Mohit Chauhan",
+        "album": "Jab We Met",
+        "duration": 323,
+        "src": "./src/assets/songs/Tum Se Hi.mp3",
+        "cover": "./src/assets/images/tum-se-hi.jpeg"
+    },
+    {
+    "id": 4,
+        "title": "Kesariya",
+        "artist": "Arijit Singh",
+        "album": "Brahmastra",
+        "duration": 268,
+        "src": "./src/assets/songs/Kesariya.mp3",
+        "cover": "./src/assets/images/kesariya.jpeg"
+    },
+    {
+    "id": 5,
+        "title": "Tujh Mein Rab Dikhta Hai",
+        "artist": "Roop Kumar Rathod",
+        "album": "Rab Ne Bana Di Jodi",
+        "duration": 284,
+        "src": "./src/assets/songs/Tujh Mein Rab Dikhta Hai.mp3",
+        "cover": "./src/assets/images/Tujh-Mein-Rab-Dikhta-Hai.jpeg"
+    },
+    {
+    "id": 6,
+        "title": "Pehli Nazar Mein",
+        "artist": "Atif Aslam",
+        "album": "Race",
+        "duration": 314,
+        "src": "./src/assets/songs/Pehli Nazar Mein.mp3",
+        "cover": "./src/assets/images/Pehli-Nazar-Mein.jpeg"
+    },
+    {
+    "id": 7,
+        "title": "Shayad",
+        "artist": "Arijit Singh",
+        "album": "Love Aaj Kal",
+        "duration": 248,
+        "src": "./src/assets/songs/Shayad.mp3",
+        "cover": "./src/assets/images/Shayad.jpeg"
+    },
+    {
+    "id": 8,
+        "title": "Chaleya",
+        "artist": "Arijit Singh & Shilpa Rao",
+        "album": "Jawan",
+        "duration": 200,
+        "src": "./src/assets/songs/Chaleya.mp3",
+        "cover": "./src/assets/images/Chaleya.jpeg"
+    }
+    ]

@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "spotify-clone-c1352",
+    "firebase use --add": "atharav-spotify"
+  },
+  "targets": {},
+  "etags": {}
+}

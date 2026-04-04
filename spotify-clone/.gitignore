@@ -1,0 +1,13 @@
+# Firebase
+.firebase/
+.firebaserc
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if added later)
+node_modules/

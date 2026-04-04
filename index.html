@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify – Web Player</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Circular+Std:wght@400;500;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="./src/assets/images/logo.png">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <!-- Nav links -->
+      <nav class="nav">
+        <a href="#" class="nav-option active" data-section="home">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="nav-option" data-section="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Search</span>
+        </a>
+      </nav>
+
+      <!-- Library -->
+      <div class="library">
+        <div class="library-header">
+          <div class="nav-option" style="opacity:1">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Your Library</span>
+          </div>
+          <div class="library-actions">
+            <button class="icon-btn" title="Create playlist"><i class="fa-solid fa-plus"></i></button>
+            <button class="icon-btn" title="Expand"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Promo boxes -->
+        <div class="promo-box">
+          <p class="promo-title">Create your first playlist</p>
+          <p class="promo-sub">It's easy, we'll help you</p>
+          <button class="pill-btn">Create Playlist</button>
+        </div>
+        <div class="promo-box">
+          <p class="promo-title">Let's find some podcasts to follow</p>
+          <p class="promo-sub">We'll keep you updated on new episodes</p>
+          <button class="pill-btn">Browse Podcasts</button>
+        </div>
+
+        <!-- Playlist items (populated by JS) -->
+        <div class="playlist-list" id="playlist-list"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main-content" id="main-content">
+
+    <!-- Sticky top nav -->
+    <div class="sticky-nav">
+      <div class="sticky-nav-left">
+        <button class="nav-arrow-btn" id="btn-back"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="nav-arrow-btn" id="btn-fwd"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="sticky-nav-right">
+        <button class="pill-btn outline hide" id="btn-premium">Explore Premium</button>
+        <button class="pill-btn outline" id="btn-install"><i class="fa-regular fa-circle-down"></i> Install App</button>
+        <button class="user-btn" id="btn-user"><i class="fa-regular fa-user"></i></button>
+      </div>
+    </div>
+
+    <!-- Search bar (shown on search section) -->
+    <div class="search-section" id="search-section" style="display:none">
+      <div class="search-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon-inner"></i>
+        <input type="text" id="search-input" class="search-input" placeholder="What do you want to listen to?" />
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </div>
+
+    <!-- Home section -->
+    <div class="home-section" id="home-section">
+
+      <!-- Greeting -->
+      <div class="greeting-row" id="greeting-row"></div>
+
+      <!-- Quick picks row -->
+      <div class="quick-picks" id="quick-picks"></div>
+
+      <!-- Sections filled by API mock -->
+      <div id="sections-container"></div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-line"></div>
+        <p class="footer-text">© 2025 Spotify AB</p>
+      </footer>
+    </div>
+  </main>
+
+  <!-- ========== MUSIC PLAYER ========== -->
+  <div class="music-player" id="music-player">
+
+    <!-- Album info -->
+    <div class="album-section">
+      <div class="album-art-wrap">
+        <img src="" alt="Album Art" class="album-img" id="album-img" />
+        <div class="album-art-placeholder" id="album-placeholder">
+          <i class="fa-solid fa-music"></i>
+        </div>
+      </div>
+      <div class="album-info">
+        <p class="song-title" id="song-title">No song selected</p>
+        <p class="artist-name" id="artist-name">—</p>
+      </div>
+      <div class="album-actions">
+        <button class="icon-btn" id="btn-like" title="Save to Liked Songs"><i class="fa-regular fa-heart"></i></button>
+        <button class="icon-btn hide" title="Add to queue"><i class="fa-solid fa-circle-plus"></i></button>
+      </div>
+    </div>
+
+    <!-- Player controls -->
+    <div class="player-section">
+      <div class="player-controls">
+        <button class="ctrl-btn" id="btn-shuffle" title="Shuffle"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="ctrl-btn" id="prev-btn" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
+        <button class="play-pause-btn" id="play-btn" title="Play/Pause">
+          <i class="fa-solid fa-play" id="play-icon"></i>
+        </button>
+        <button class="ctrl-btn" id="next-btn" title="Next"><i class="fa-solid fa-forward-step"></i></button>
+        <button class="ctrl-btn" id="btn-repeat" title="Repeat"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+      <div class="playback-bar">
+        <span class="time-label" id="curr-time">0:00</span>
+        <div class="progress-wrap">
+          <input type="range" id="progress-bar" class="progress-bar" min="0" max="100" step="0.1" value="0" />
+        </div>
+        <span class="time-label" id="tot-time">0:00</span>
+      </div>
+    </div>
+
+    <!-- Volume & extras -->
+    <div class="controls-section">
+      <button class="ctrl-btn hide" title="Now Playing View"><i class="fa-solid fa-microphone-lines"></i></button>
+      <button class="ctrl-btn hide" title="Queue"><i class="fa-solid fa-list"></i></button>
+      <button class="ctrl-btn hide" title="Connect to device"><i class="fa-solid fa-laptop"></i></button>
+      <div class="volume-group">
+        <button class="ctrl-btn" id="btn-mute" title="Mute"><i class="fa-solid fa-volume-high" id="vol-icon"></i></button>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.7" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden audio element -->
+  <audio id="audio"></audio>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

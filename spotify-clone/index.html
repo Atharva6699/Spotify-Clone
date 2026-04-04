@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Spotify – Web Player</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div class="app-shell">
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <nav class="nav">
+          <a href="#" class="nav-option active" data-section="home">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+          <a href="#" class="nav-option" data-section="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
+          </a>
+        </nav>
+
+        <div class="library">
+          <div class="library-header">
+            <div class="nav-option" style="opacity:1">
+              <i class="fa-solid fa-book-open"></i>
+              <span>Your Library</span>
+            </div>
+            <div class="library-actions">
+              <button class="icon-btn" title="Create playlist"><i class="fa-solid fa-plus"></i></button>
+              <button class="icon-btn" title="Expand"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+          <div class="promo-box">
+            <p class="promo-title">Create your first playlist</p>
+            <p class="promo-sub">It's easy, we'll help you</p>
+            <button class="pill-btn">Create Playlist</button>
+          </div>
+          <div class="promo-box">
+            <p class="promo-title">Let's find some podcasts to follow</p>
+            <p class="promo-sub">We'll keep you updated on new episodes</p>
+            <button class="pill-btn">Browse Podcasts</button>
+          </div>
+          <div class="playlist-list" id="playlist-list"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content" id="main-content">
+
+      <div class="sticky-nav">
+        <div class="sticky-nav-left">
+          <button class="nav-arrow-btn" id="btn-back"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="nav-arrow-btn" id="btn-fwd"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="sticky-nav-right">
+          <button class="pill-btn outline desktop-only" id="btn-install">
+            <i class="fa-regular fa-circle-down"></i> Install App
+          </button>
+          <button class="user-btn" id="btn-user"><i class="fa-regular fa-user"></i></button>
+        </div>
+      </div>
+
+      <!-- Search Section -->
+      <div class="search-section" id="search-section" style="display:none">
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon-inner"></i>
+          <input type="text" id="search-input" class="search-input" placeholder="What do you want to listen to?" />
+        </div>
+        <div class="search-results" id="search-results"></div>
+      </div>
+
+      <!-- Home Section -->
+      <div class="home-section" id="home-section">
+        <div class="greeting-row" id="greeting-row"></div>
+        <div class="quick-picks" id="quick-picks"></div>
+        <div id="sections-container"></div>
+        <footer class="footer">
+          <div class="footer-line"></div>
+          <p class="footer-text">© 2025 Spotify AB</p>
+        </footer>
+      </div>
+
+    </main>
+
+    <!-- ========== MUSIC PLAYER ========== -->
+    <div class="music-player" id="music-player">
+
+      <div class="album-section">
+        <div class="album-art-wrap">
+          <img src="" alt="Album Art" class="album-img" id="album-img" />
+          <div class="album-art-placeholder" id="album-placeholder">
+            <i class="fa-solid fa-music"></i>
+          </div>
+        </div>
+        <div class="album-info">
+          <p class="song-title" id="song-title">No song selected</p>
+          <p class="artist-name" id="artist-name">—</p>
+        </div>
+        <div class="album-actions">
+          <button class="icon-btn" id="btn-like" title="Save to Liked Songs">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="player-section">
+        <div class="player-controls">
+          <button class="ctrl-btn" id="btn-shuffle" title="Shuffle"><i class="fa-solid fa-shuffle"></i></button>
+          <button class="ctrl-btn" id="prev-btn" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
+          <button class="play-pause-btn" id="play-btn" title="Play/Pause">
+            <i class="fa-solid fa-play" id="play-icon"></i>
+          </button>
+          <button class="ctrl-btn" id="next-btn" title="Next"><i class="fa-solid fa-forward-step"></i></button>
+          <button class="ctrl-btn" id="btn-repeat" title="Repeat"><i class="fa-solid fa-repeat"></i></button>
+        </div>
+        <div class="playback-bar">
+          <span class="time-label" id="curr-time">0:00</span>
+          <div class="progress-wrap">
+            <input type="range" id="progress-bar" min="0" max="100" step="0.1" value="0" />
+          </div>
+          <span class="time-label" id="tot-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="controls-section">
+        <div class="volume-group">
+          <button class="ctrl-btn" id="btn-mute" title="Mute">
+            <i class="fa-solid fa-volume-high" id="vol-icon"></i>
+          </button>
+          <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.7" />
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end .app-shell -->
+
+  <!-- ========== MOBILE BOTTOM NAV ========== -->
+  <nav class="bottom-nav" id="bottom-nav">
+    <div class="bottom-nav-inner">
+      <button class="bottom-nav-btn active" data-section="home">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </button>
+      <button class="bottom-nav-btn" data-section="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Search</span>
+      </button>
+      <button class="bottom-nav-btn" data-section="library">
+        <i class="fa-solid fa-book-open"></i>
+        <span>Library</span>
+      </button>
+    </div>
+  </nav>
+
+  <audio id="audio"></audio>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
