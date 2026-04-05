@@ -74,8 +74,11 @@ web/firebase-config.js
 web/songs.json
 app/google-services.json
 
-# Hide all images and music from GitHub
-web/assets/
+# Hide all local media from GitHub
+src/assets/images/
+src/assets/songs/
+
+# Hide specific file types just in case
 *.mp3
 *.jpeg
 *.png
