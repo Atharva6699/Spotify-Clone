@@ -68,25 +68,22 @@ node_modules/
 # dataconnect generated files
 .dataconnect
 
-# --- SECRETS & LOGIC (Hides from GitHub) ---
+# --- My Custom Secret Files (Hides from GitHub) ---
 web/config.js
 web/firebase-config.js
 web/songs.json
 web/script.js
+firebase.json
 
-# --- MEDIA & ASSETS (Hides from GitHub) ---
-# This covers both your 'src' and 'web' asset folders
-**/assets/songs/
-**/assets/images/
-**/assets/music/
+# --- Hide Media inside the Web folder ---
+web/assets/images/
+web/assets/songs/
 
-# Hide specific media formats everywhere
+# Extra safety for media types
 *.mp3
 *.jpg
 *.jpeg
 *.png
-*.gif
-
 # --- ANDROID & BUILD DATA ---
 app/
 build/
