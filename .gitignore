@@ -73,3 +73,10 @@ web/config.js
 web/firebase-config.js
 web/songs.json
 app/google-services.json
+
+# Hide all images and music from GitHub
+web/assets/
+*.mp3
+*.jpeg
+*.png
+*.jpg
