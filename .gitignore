@@ -67,3 +67,9 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# --- My Custom Secret Files ---
+web/config.js
+web/firebase-config.js
+web/songs.json
+app/google-services.json
