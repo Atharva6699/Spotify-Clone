@@ -1,13 +1,7 @@
-/* ============================================================
-   SPOTIFY CLONE – script.js
-   Full music player + Mock API + Search + Shuffle/Repeat/Like
-   ============================================================ */
+
 
 "use strict";
 
-// ─────────────────────────────────────────────
-// MOCK API  (replace BASE_URL with a real backend if you have one)
-// ─────────────────────────────────────────────
 const API = {
   BASE_URL: null, 
 
@@ -106,12 +100,8 @@ const API = {
       ));
     }, 200));
   },
-}; // <-- End of API object
-// ... KEEP ALL YOUR DOM REFS AND THE REST OF YOUR CODE BELOW THIS LINE ...
+}; 
 
-// ─────────────────────────────────────────────
-// DOM REFS
-// ─────────────────────────────────────────────
 const audio        = document.getElementById("audio");
 const playBtn      = document.getElementById("play-btn");
 const playIcon     = document.getElementById("play-icon");
